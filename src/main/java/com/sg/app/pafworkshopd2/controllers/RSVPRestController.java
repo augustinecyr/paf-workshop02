@@ -81,7 +81,7 @@ public class RSVPRestController {
             return ResponseEntity.badRequest().body(resp.toString());
         }
 
-        rsvpResult = rsvpSvc.insertPurchaseOrder(rsvp);
+        rsvpResult = rsvpSvc.insertRSVP(rsvp);
         resp = Json.createObjectBuilder()
                 .add("rsvpId", rsvpResult.getId())
                 .build();

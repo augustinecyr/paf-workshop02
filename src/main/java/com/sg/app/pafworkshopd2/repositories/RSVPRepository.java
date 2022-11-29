@@ -30,7 +30,7 @@ public class RSVPRepository {
         final List<RSVP> rsvps = new LinkedList<>();
         SqlRowSet rs = null;
         // perform the query
-        System.out.println("Q>" + q);
+        System.out.println("Name query>" + q);
         if (q == null) {
             rs = jdbcTemplate.queryForRowSet(SQL_SELECT_ALL_RSVP);
         } else {
@@ -63,7 +63,8 @@ public class RSVPRepository {
             ps.setString(1, rsvp.getName());
             ps.setString(2, rsvp.getEmail());
             ps.setString(3, rsvp.getPhone());
-            System.out.println("Confirmation date > " + rsvp.getConfirmationDate());
+            System.out.println("Confirmation date with timestamp > " + rsvp.getConfirmationDate());
+            // joda date time
             ps.setTimestamp(4, new Timestamp(rsvp.getConfirmationDate().toDateTime().getMillis()));
             ps.setString(5, rsvp.getComments());
             return ps;
