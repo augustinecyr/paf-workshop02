@@ -19,8 +19,21 @@ GRANT ALL PRIVILEGES ON *.* TO 'rsvp'@'localhost' WITH GRANT OPTION;
 
 FLUSH PRIVILEGES;
 
+truncate rsvp;
+
+ALTER TABLE rsvp ADD CONSTRAINT rsvp_email_u UNIQUE (email);
+
+show tables;
+
+select count(*) from rsvp;
+
+select * from rsvp;
+
+desc rsvp;
+
 ### Functions of the application
 1. list all records using getAllCustomer through /api/rsvp
 2. get total count through /api/rsvp/count
 3. insert a new entry using insertRSVP with a POST request.
 4. edit and update an entry using updateRSVP with a PUT request.
+5. updated upsert function
